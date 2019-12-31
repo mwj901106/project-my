@@ -42,9 +42,10 @@
     methods:{
       // 点击切换右侧ProductList,切换显示边框
       toDetail(index){
+        // 重复点击不发请求
+        if(this.currentIndex === index) return
         this.currentIndex = index
-        console.log(this)
-        console.log(this.currentIndex)
+        
         // if(this.currentIndex === this.index) return
         // 判断下标发请求,动态显示productList
         // 点击女装

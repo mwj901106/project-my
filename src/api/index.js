@@ -8,5 +8,7 @@ export const reqGetShopWoman = () => ajax('/getshopwoman')
 export const reqGetYuRong = () => ajax('/getshopYuRong')
 //获取男女内衣
 export const reqGetShopUnderwear = () => ajax('/getshopUnderwear')
+// 获取男装
 export const reqGetShopMan = () => ajax('/getshopman')
-// export const reqGetProductList = () => ajax('/getshopbottine')
+// 大衣
+export const reqGetProductList = () => ajax('/getshopbottine')

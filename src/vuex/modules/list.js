@@ -4,7 +4,8 @@ import {
   GET_SHOP_WPMEN,
   GET_SHOP_YURONG,
   GET_UNDER_WEAR,
-  GET_SHOP_MEN
+  GET_SHOP_MEN,
+  GET_PRODUCT_CLOTHS
 } 
 from "../mutation-type";
 import {
@@ -12,7 +13,8 @@ import {
   reqGetShopWoman,
   reqGetYuRong,
   reqGetShopUnderwear,
-  reqGetShopMan
+  reqGetShopMan,
+  reqGetProductList
 } from '../../api'
 
 export default {
@@ -38,6 +40,9 @@ export default {
     },
     [GET_SHOP_MEN](state,shopWomen){
       state.shopWomen = shopWomen
+    },
+    [GET_PRODUCT_CLOTHS](state,produceYuRong){
+      state.produceYuRong = produceYuRong
     },
       
   },
@@ -91,7 +96,16 @@ export default {
         commit(GET_SHOP_MEN, shopWomen)
       }
     },
-    
+    async getShopCloths ({commit, state}) {
+      // 发异步请求
+      const result = await reqGetProductList()
+      // 请求成功后, 提交给mutation
+      if (result.code===0) {
+        const produceYuRong = result.data
+        commit(GET_PRODUCT_CLOTHS, produceYuRong)
+      }
+    },
+                  
   },
   getters:{}
 }
