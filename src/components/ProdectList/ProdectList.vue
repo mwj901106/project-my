@@ -1,7 +1,7 @@
 <template>
   <div class="detail" ref="rightNavContainer">
     <div class="detailContainer"  v-if="shopWomen.data" >
-      <div class="hot">热销榜</div>
+      
       <div class="contents" v-for="(item,index) in shopWomen.data.current_node.children">
         <h2>{{item.name}}</h2>
         <div class="classify-content-box">
@@ -10,6 +10,10 @@
             <img :src="item2.image" alt="">
             <p>{{item2.name}}</p>
           </div>
+        </div>
+        <div class="hot">
+          热销榜 
+          <i class="iconfont  icon-right"></i>
         </div>
       </div>      
     </div>
@@ -49,22 +53,26 @@
   .detail  
     width 100%
     .detailContainer 
-      position relative
-      // 右侧热销榜
-      .hot
-        position absolute  
-        right 15px  
+      // position relative
+      
         // 较大的分类板块 如冬季热卖板块
       .contents
         width 231px
         width 100vw-93px
         margin-left 23px
-        margin-top 15px
         border-bottom 1px solid #F9F9F9
-        // border-bottom 1px solid black
+        position relative
         // 每个版块的小标题
+        // 右侧热销榜
+        .hot
+          position absolute  
+          right 15px 
+          top 0
+          color #585C64
+          font-size 12px
         h2
           margin-top 20px
+          font-size 14px
           // 每个单独的item
         /* &:after
           content : ''
