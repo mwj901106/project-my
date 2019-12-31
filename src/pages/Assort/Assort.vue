@@ -36,21 +36,27 @@
   export default {  
     data(){
       return{
-        currentIndex : 0
+        currentIndex : 0 // 左侧leftNav当前下标
       }
     },
     methods:{
+      // 点击切换右侧ProductList,切换显示边框
       toDetail(index){
         this.currentIndex = index
         console.log(this)
         console.log(this.currentIndex)
         // if(this.currentIndex === this.index) return
-
-        if(this.currentIndex === 2){
+        // 判断下标发请求,动态显示productList
+        // 点击女装
+        if(this.currentIndex === 1){
           // console.log(this.currentIndex)
+          this.$store.dispatch('getShopWomen')  
+        }
+        // 点击男装
+        if(this.currentIndex === 2){
           this.$store.dispatch('getShopMen')  
         }
-
+        // 点击男女内衣
         if(this.currentIndex === 3){
           this.$store.dispatch('getShopUnderWear')        
         }
@@ -94,6 +100,7 @@
     .assort
       /* overflow hidden
       height 1334px */
+      // 头部包裹容器
       .topContainer
         width 100%
         height 45px
@@ -119,6 +126,7 @@
           margin auto 10px
         .icon-cc-home
           float right
+      // 搜索包裹容器
       .searchContainer
         background-color #F3F4F5
         height 57px
@@ -136,19 +144,17 @@
           color #B5B5BA
           i 
             margin-left 5px
+      //下方主题部分包裹容器 
       .main
         display flex
         height calc(100vh - 45px - 57px)
         overflow hidden
-        
+        // 左侧li包裹容器
         .listWrapper
-          // overflow hidden
-          // display flex
-          .list
-            
+          // 左侧li外层ul
+          .list           
             width 93px
-            background-color #F3F4F5
-            
+            background-color #F3F4F5           
             li 
               width 100%
               height 48px
@@ -156,6 +162,7 @@
               text-align center
               font-size 14px
               color #767980
+              // 点击的当前样式
             .active
               border-left 3px solid #DE3D96
               span 

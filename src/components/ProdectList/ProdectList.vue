@@ -24,10 +24,7 @@
     methods:{
       gotoProduct(index){
         this.$router.push('/product')
-        /* console.log(index)
-        if(index === 0){
-
-        } */
+       
       }
       
     },
@@ -53,7 +50,7 @@
       // 右侧热销榜
       .hot
         position absolute  
-        right 15px   
+        right 15px  
         // 较大的分类板块 如冬季热卖板块
       .contents
         width 231px
@@ -61,7 +58,10 @@
         margin-top 15px
         border-bottom 1px solid #F9F9F9
         // border-bottom 1px solid black
-        // 每个单独的item
+        // 每个版块的小标题
+        h2
+          margin-top 20px
+          // 每个单独的item
         .classify-content-box
           width 231px
           margin-top 10px
